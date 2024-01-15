@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Money Tracker - Expenses</title>
+  <style>
+    *{
+     
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #353434;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      width: 400px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .expense-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .expense-item {
+      margin-bottom: 15px;
+    }
+
+    .expense-details {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .action {
+      display: block;
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: #fff;
+      background-color: #3498db;
+      border-radius: 3px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .btn:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Money Tracker-Expenses </h1>
+    </header>
+    <ul class="expense-list">
+      <% expenses.forEach(expense => { %>
+        <li class="expense-item">
+          <span class="expense-details">
+            <%= expense.description %> - $<%= expense.amount %> - <%= expense.date.toDateString() %>
+          </span>
+        </li>
+      <% }); %>
+    </ul>
+    <div class="action">
+      <a href="/expenses/new" class="btn btn-secondary">Add Expense</a>
+    </div>
+  </div>
+</body>
+</html>
